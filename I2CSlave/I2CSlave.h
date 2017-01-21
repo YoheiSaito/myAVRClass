@@ -21,7 +21,7 @@ class I2CSlave{
 	unsigned char *rBuf;
 	int twiSend(int n);
 	int twiRecieve(int n);
-	
+
 };
 I2CSlave::I2CSlave(unsigned char ADDRESS){
 	TWBR = 2;
@@ -94,7 +94,6 @@ int  I2CSlave::communicate(){
 }
 ISR(TWI_vect){
 	cli();
-	PORTC ^= 1;
 	(*TWIInterruptFuntction)();
 	sei();
 }
